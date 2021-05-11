@@ -1,0 +1,30 @@
+<form action="/user/login_check" method="post">
+    <table>
+        <tr>
+            <td>아이디</td>
+            <td><input type="text" id="userid" name="userid"></td>
+        </tr>
+        <tr>
+            <td>패스워드</td>
+            <td><input type="password" id="userpw" name="userpw"></td>
+        </tr>
+
+    </table>
+    <input type="submit" value="로그인">
+    {%if flag== '0' %}
+    <script type="text/javascript">
+        // alert('아이디와 패스워드를 확인해주세요')
+        const id=document.querySelector('#userid');
+        const pw=document.querySelector('#userpw');
+        id.setAttribute('style','background:yellow;');
+        pw.setAttribute('style','background:yellow;');
+
+        id.addEventListener('focus',()=>{
+            id.setAttribute('style','background:#fff;')
+        })
+        pw.addEventListener('focus',()=>{
+            pw.setAttribute('style','background:#fff;')
+        })
+    </script>
+    {%endif%}
+</form>

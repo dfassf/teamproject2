@@ -1,0 +1,99 @@
+<form action="/user/join_success" method="post" id="join_form" enctype="multipart/form-data"> <!--파일을 받을 때는 이걸로-->
+    <table>
+        <tr>
+            <td>아이디</td><!--중복체크, ajax 이용-->
+            <td><input type="text" name="userid" id="userid"></td>
+            <p id="userid_msg"></p>
+        </tr>
+        <tr>
+            <td>패스워드</td><!--패스워드 확인, 둘이 일치하게-->
+            <td><input type="password" id="userpw" name="userpw"></td>
+        </tr>
+        <tr>
+            <td>패스워드 확인</td><!--패스워드 확인, 둘이 일치하게-->
+            <td><input type="password" id="userpw_check" name="userpw_check"></td>
+        </tr>
+        <tr>
+            <td>이름</td>
+            <td><input type="text" name="username" maxlength="20"></td>
+        </tr>
+        <tr>
+            <td>성별</td>
+            <td><input type="radio" id="gender" name="gender" value="0" checked>남자</td> <!-- checked하면 기본 체크가 되어있음 -->
+            <td><input type="radio" id="gender" name="gender" value="1">여자</td>
+        </tr>
+        <tr>
+            <td>사진 </td>
+            <td><input type="file" name="userimage"></td> <!-- accept="img/png, img/jpeg" 활용 가능 -->
+        </tr>
+    </table>
+    <input type="button" id="join_submit" value="회원가입">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+
+    <script type="text/javascript">
+        const pw=document.querySelector('#userpw');
+        const pw2=document.querySelector('#userpw_check');
+        const userid_msg=document.querySelector('#userid_msg')
+        const userid=document.querySelector('#userid')
+
+        function pwcheck(){
+            return pw.value==pw2.value;
+            console.log(pw.value,pw2.value);
+        }
+
+        console.log(userid_msg,userid)
+        async function userid_check(){
+            let data = await axios.get(`http://localhost:3000/user/userid_check?userid=${userid.value}`)
+            let login_flag=data.data.login;
+            console.log(login_flag)
+            if(userid.value==""){
+                userid_msg.innerHTML="아이디를 입력해주세요.";
+                userid_msg.style.color="red";
+
+            }
+            else if(login_flag){
+                userid_msg.innerHTML="올바른 아이디입니다";
+                userid_msg.style.color="green";
+
+
+            } else{
+                userid_msg.innerHTML="중복된 아이디입니다";
+                userid_msg.style.color="red";
+
+
+            }
+        }
+        const btn=document.querySelector('#join_submit');
+        const join_form=document.querySelector('#join_form');
+
+        userid.addEventListener('focusout',userid_check)
+
+        btn.addEventListener('click',async ()=>{
+
+           /* pwd_check=pwcheck();
+            if(pwd_check){
+                join_form.submit();
+            } else if(pwd_check=false){
+                alert('비밀번호가 서로 다릅니다')
+                pw.value='';
+                pw2.value=''
+                pw.focus();
+            } 
+
+            아이디유효성검사
+            비밀번호 검사    */
+            pwd_check=pwcheck();
+            let data = await axios.get(`http://localhost:3000/user/userid_check?userid=${userid.value}`)
+            let idchk=data.data.login;
+
+            if(pwd_check&&idchk){
+
+               join_form.submit();
+            }
+            else{
+                alert('입력사항을 확인해 주세요.')
+            }
+
+        })
+    </script>
+</form>

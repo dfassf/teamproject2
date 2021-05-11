@@ -1,0 +1,8 @@
+{%if isLogin %}
+{{userid}}님 환영합니다  
+<a href="/user/logout">로그아웃</a><br>
+<a href ="/user/info">회원정보</a>
+{% else %}
+<a href="/user/login">로긴</a>
+<a href="/user/join">조인</a>
+{%endif%}
