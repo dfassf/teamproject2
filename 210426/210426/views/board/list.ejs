@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/list.css" rel="stylesheet">
+</head>
+<body>
+    <div id="wrap">
+        <div id="center">
+            <h2>전체 목록</h2>
+            <div class="board">
+                <table>
+                    <tr class="header">
+                        <td class="header">순서</td>
+                        <td class="header" id="title">제목</a></td>
+                        <td class="header">작성자</td>
+                        <td class="header">날짜</td>
+                        <td class="header">조회수</td>
+                    </tr>
+                    {% for(var i = (page * page_num) - page_num; i < (page * page_num); i++) { if(i > length){i++; }else{ var list = results[i] %}
+                    <tr>
+                        <td>{%= list.number %}</td>
+                        <td id="title"><a href="/board/view?idx=<%= item.idx %>">{%= item.subject %}</a></td>
+                        <td>{%= list.writer %}</td>
+                        <td>{%= list.today %}</td>
+                        <td><%= list.hit %></td>
+                    </tr>
+                    <% }}  %>
+                </table>
+                <div class="list_index">
+                    <% for(var j = 0; j < results.length / page_num; j++){ %>
+                    [<a href="/board/page/<%= j + 1 %>"><%= j + 1 %></a>]
+                    <%  }  %>
+
+                </div>
+                <a href="/board/write" class="write_btn">글쓰기</a>
+            </div>
+        </div>
+        {% include "../layout/bottom.html" %}

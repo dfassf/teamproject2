@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/write.css" rel="stylesheet">
+
+</head>
+<body>
+    <div id="wrap">
+        <div id="center">
+            <h2>게시판</h2>
+            <ul>
+                <li style="display:none" >{{list.idx}}</li>
+            </ul>
+            <ul>
+                <li class="title">글제목</li>
+                <li><input class="w800" value="{{list.subject}}" readonly="true"></li>
+            </ul>
+            <ul>
+                <li class="title">작성자</li>
+                <li><input class="w800" value="{{list.writer}}" readonly="true"></li>
+            </ul>
+            <ul>
+                <li class="title">내용</li>
+                <li>
+                    <textarea type="text" name="board_content" class="w800" readonly="true"  style="resize:none">{{list.content}}</textarea>
+                </li>
+            </ul>
+
+            <a href="/board/list" class="list_btn">리스트가기</a>
+            <a href="/board/modify?idx={{list.idx}}" class="modify_btn">수정하기</a>
+        </div>
+        {% include "../layout/bottom.html" %}

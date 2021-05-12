@@ -1,0 +1,34 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+a{
+    text-decoration: none; 
+    position:absolute;
+    left:45%;
+    transform:translateX(-50%);
+    top:50%;
+    transform:translateY(-50%);
+}
+
+ul,li{
+    list-style: none;
+}
+
+#wrap{
+    width:100%;
+}
+
+#center{
+    width:1000px;
+    height:400px;
+    background:lightgray;
+    margin: 0 auto;
+    position:relative;
+}
+
+h2{
+    text-align:center;
+}
+

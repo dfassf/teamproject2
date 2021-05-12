@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/write.css" rel="stylesheet">
+    <script>
+        function del(){
+            if(confirm("삭제하시겠습니까?")){
+                return;
+            } else{
+                event.preventDefault();
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <div id="center">
+            <form action="/board/modify" method="post">
+            <h2>글수정</h2>
+
+            <ul>
+                <li style="display:none"><input type="text" name="board_idx" class="w800" value="{{item.idx}}"></li>
+            </ul>
+            <ul>
+                <li class="title">글제목</li>
+                <li><input type="text" name="board_subject" class="w800" value="{{item.subject}}"></li>
+            </ul>
+            <ul>
+                <li class="title">작성자</li>
+                <li><input type="text" name="board_writer" class="w800" value="{{item.writer}}"></li>
+            </ul>
+            <ul>
+                <li class="title">내용
+                    <textarea name="board_content" id="board_content" class="w800" style="resize: none">{{item.content}}</textarea>
+                </li>
+            </ul>
+
+            <input type="submit" class="write_btn" value="수정 완료">
+            <a href="/board/delete?idx={{item.idx}}" class="delete_btn" onclick="del()">글삭제</a>
+
+            <a href="/board/list" class="back_btn">뒤로가기</a>
+            </form>
+        </div>
+        {% include "../layout/bottom.html" %}

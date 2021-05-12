@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/write.css" rel="stylesheet">
+    <script> 
+    function emp(){
+        let subject=document.querySelector('.board_subject').value;
+        let writer=document.querySelector('.board_writer').value;
+        let content=document.querySelector('.board_content').value;
+        console.log(subject,writer,content)
+        if(subject==""){
+            alert('제목을 입력해 주십시오');
+            event.preventDefault();
+        } else if(writer==""){
+            alert('작성자를 입력해 주십시오');
+            event.preventDefault();
+        } else if(content==""){
+            alert('내용을 입력해 주십시오');
+            event.preventDefault();
+
+        }
+    }
+        </script>
+</head>
+<body>
+    <div id="wrap">
+        <div id="center">
+            <form action="/board/write" method="post">
+            <h2>글쓰기</h2>
+            <ul>
+                <li class="title">글제목</li>
+                <li><input type="text" class="board_subject" name="board_subject" class="w800"></li>
+            </ul>
+            <ul>
+                <li class="title">작성자</li>
+                <li><input type="text" class="board_writer" name="board_writer" class="w800"></li>
+            </ul>
+            <ul>
+                <li class="title">내용</li>
+                <li>
+                    <textarea name="board_content" class="board_content" class="w800" style="resize:none;"></textarea>
+                </li>
+            </ul>
+            <button class="write_btn" onclick="emp()">글쓰기</button>
+            <a href="/board/list" class="back_btn">뒤로가기</a>
+            </form>
+        </div>
+        {% include "../layout/bottom.html" %}

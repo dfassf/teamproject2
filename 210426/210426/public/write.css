@@ -1,0 +1,163 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+a{
+    text-decoration: none; 
+    color:black;
+}
+
+a:visited{
+    color:black;
+    font-size:20px;
+}
+
+ul,li{
+    list-style: none;
+}
+
+h2{
+    margin: 0 auto;
+    text-align:center;
+}
+
+#wrap{
+    width:100%;
+}
+
+#center{
+    width:1000px;
+    height:500px;
+    background:lightgray;
+    margin: 0 auto;
+    position:relative;
+    padding-top:20px;
+    box-sizing: border-box;
+}
+
+
+ul>li{
+    width:800px;
+    margin: 0 auto;
+}
+
+
+
+.write_btn{
+    display:inline-block;
+    font-size:20px;
+    padding: 7px 14px;
+    text-align:center;
+    border-radius:5px;
+    background:gray;
+    width:128px;
+    height:44px;
+    line-height:25px;
+    position:absolute;
+    right: 10px;
+    bottom: 10px;
+    position:absolute;
+    vertical-align: middle;
+    cursor: pointer;
+    border: none;
+    outline: 0;
+    color:black;
+
+}
+
+.modify_btn{
+    display:inline-block;
+    padding: 7px 14px;
+    text-align:center;
+    border-radius:5px;
+    background:gray;
+    width:100px;
+    height:30px;
+    line-height:25px;
+    position:absolute;
+    right: 150px;
+    bottom: 10px;
+    position:absolute;
+    font-size:20px;
+}
+
+.list_btn{
+    display:inline-block;
+    padding: 7px 14px;
+    text-align:center;
+    border-radius:5px;
+    background:gray;
+    width:100px;
+    height:30px;
+    line-height:25px;
+    position:absolute;
+    right: 10px;
+    bottom: 10px;
+    position:absolute;
+    color:black;
+    font-size:20px;
+}
+
+textarea{
+    height:250px;
+}
+
+#board_content{
+    height:250px;
+    vertical-align: top;
+}
+
+.title{
+    font-size:20px;
+}
+
+.delete_btn{
+    display:inline-block;
+    font-size:20px;
+    padding: 7px 14px;
+    text-align:center;
+    border-radius:5px;
+    background:gray;
+    width:128px;
+    height:44px;
+    line-height:25px;
+    position:absolute;
+    right: 150px;
+    bottom: 10px;
+    position:absolute;
+    vertical-align: middle;
+    cursor: pointer;
+    border: none;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+.w800{
+    width:800px;
+}
+
+.board_subject, .board_writer, .board_content{
+    width:800px;
+}
+
+.back_btn{
+    display:inline-block;
+    font-size:20px;
+    padding: 7px 14px;
+    text-align:center;
+    border-radius:5px;
+    background:gray;
+    width:128px;
+    height:44px;
+    line-height:25px;
+    position:absolute;
+    left: 10px;
+    bottom: 10px;
+    position:absolute;
+    vertical-align: middle;
+    cursor: pointer;
+    border: none;
+    outline: 0;
+    box-sizing: border-box;
+}

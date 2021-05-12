@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/list.css" rel="stylesheet">
+</head>
+<body>
+    <div id="wrap">
+        <div id="center">
+            <h2>전체 목록</h2>
+            <div class="board">
+                <table>
+                    <tr class="header">
+                        <td class="header">순서</td>
+                        <td class="header" id="title">제목</a></td>
+                        <td class="header">작성자</td>
+                        <td class="header">날짜</td>
+                        <td class="header">조회수</td>
+                    </tr>
+                    {% for item in list %} <!--여기부턴 코드값이다-->
+                    <tr>
+                        <td>{{item.number}}</td>
+                        <td id="title"><a href="/board/view?idx={{item.idx}}">{{item.subject}}</a></td>
+                        <td>{{item.writer}}</td>
+                        <td>{{item.today}}</td>
+                        <td>{{item.hit}}</td>
+                    </tr>
+                {%endfor%}
+                </table>
+                <div class="list_index">
+                    {%for listitem in listrow %}
+                        <a href="/board/list?idx={{listitem}}">[{{listitem}}]</a>
+                       
+                    {% endfor %}
+                </div>
+                <a href="/board/write" class="write_btn">글쓰기</a>
+            </div>
+        </div>
+        {% include "../layout/bottom.html" %}
